@@ -19,7 +19,7 @@ Sede Principal do Ministério Público do Estado da Bahia, localizada na 5ª Ave
 Quinta-feira - 07/11 - 13h às 20h, Sexta-feira (08/11) e sábado (09/11) - 8h às 20h.
 
 ## Submissão da solução desenvolvida
-Ao final do evento, os grupos deverão ter submetido uma *Pull Request* no repositório Git da Hackathon (https://github.com/mpba/hackathon), contendo todo o código fonte da solução desenvolvida. Cada equipe deverá editar o arquivo "README_EQUIPES.md" e fazer o commit junto com as soluções.
+Ao final do evento, os grupos deverão submeter um *Pull Request* no repositório Git da Hackathon (https://github.com/mpbahia/hackathon2019), contendo todo o código fonte da solução desenvolvida, instruções para acesso ao aplicativo ou sistema, build e instalação do mesmo a partir do código fonte no repositório, quando aplicável.
 
 ### Passos para realizar o *Pull Request*
 
