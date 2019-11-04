@@ -27,7 +27,7 @@ Ao final do evento, os grupos deverão submeter um *Pull Request* no repositóri
 
 -Acessar o link do repositório da Hackathon (https://github.com/mpbahia/hackathon2019) e realizar um *Fork* clicando em:
 
-<img src="https://github.com/mpbahia/hackathon2019/blob/master/fork_img.PNG?raw=true" width="10%" title="Fork">
+<img src="https://github.com/mpbahia/hackathon2019/blob/master/fork_img.PNG?raw=true" width="100%" title="Fork">
 
 -Fazer as alterações necessárias no arquivo "README_EQUIPES.md" e adicionar um diretório com as soluções desenvolvidas. Esta etapa pode ser feita através da interface gráfica do próprio Github (clicando em "upload files") ou, se desejar, poderá clonar o *fork* no próprio computador e fazer as modificações localmente.
 
