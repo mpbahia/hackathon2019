@@ -33,7 +33,7 @@ Ao final do evento, os grupos deverão submeter um *Pull Request* no repositóri
 
 -Realizar o *Pull Request* do *fork* para o repositório do Hackathon MPBA clicando em:
 
-<img src="https://github.com/mpbahia/hackathon2019/blob/master/pull_request_img.PNG" width="10%" title="Pull Request">
+<img src="https://github.com/mpbahia/hackathon2019/blob/master/pull_request_img.PNG" width="30%" title="Pull Request">
 
 -Clicar em:
 
