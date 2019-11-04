@@ -27,7 +27,7 @@ Ao final do evento, os grupos deverão submeter um *Pull Request* no repositóri
 
 -Realizar um *Fork* do repositório Git da Hackathon, clicando em:
 
-<img src="https://github-images.s3.amazonaws.com/help/bootcamp/Bootcamp-Fork.png" width="30%" title="Fork">
+<img src="https://github.com/mpbahia/hackathon2019/blob/master/fork_img.PNG?raw=true" width="30%" title="Fork">
 
 -Fazer a alteração no arquivo "README_EQUIPES.md" e adicionar um diretório com as soluções desenvolvidas. Esta etapa pode ser feita através da interface gráfica do próprio Github ou, se desejar, poderá clonar o *fork* no próprio computador e fazer as modificações.
 
