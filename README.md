@@ -4,7 +4,7 @@
 
 # HACKATHON MPBA 2019
 
-O Hackathon MPBA 2019 – Maratona de Programação em Prol da Sociedade é um evento no qual os participantes desenvolverão soluções de tecnologia da informação, que serão disponibilizadas à população e aos integrantes do Ministério Público do Estado da Bahia, para que possam ser utilizadas como ferramentas de defesa social.
+O Hackathon MPBA 2019 – Maratona de Programação em Prol da Sociedade é um evento no qual os participantes desenvolverão soluções de tecnologia da informação, que serão disponibilizadas à população e aos integrantes do Ministério Público do Estado da Bahia, para que possam ser utilizadas como ferramentas de defesa social. Para mais informações acesse nosso site: hackathon.mpba.mp.br/.
 
 ## Temas
 
