@@ -29,7 +29,7 @@ Ao final do evento, os grupos deverão submeter um *Pull Request* no repositóri
 
 <img src="https://github.com/mpbahia/hackathon2019/blob/master/fork_img.PNG?raw=true" width="50%" title="Fork">
 
--Fazer as alterações necessárias no arquivo "README_EQUIPES.md" e adicionar um diretório com a solução desenvolvida. Nesta etapa, aconselhamos clonar o *fork* no próprio computador, fazer as modificações localmente, realizar o commit das mudanças e em seguida fazer o *push*. Caso tenha 
+-Fazer as alterações necessárias no arquivo "README_EQUIPES.md" e adicionar um diretório com a solução desenvolvida. Nesta etapa, aconselhamos clonar o *fork* no próprio computador, fazer as modificações localmente, realizar o commit das mudanças e em seguida fazer o *push*. Caso tenha alguma dúvida a respeito deste passo, a página https://rogerdudler.github.io/git-guide/index.pt_BR.html poderá ajudar.
 
 -Realizar o *Pull Request* do *fork* para o repositório do Hackathon MPBA clicando em:
 
