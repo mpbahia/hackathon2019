@@ -43,6 +43,6 @@ Ao final do evento, os grupos deverão submeter um *Pull Request* no repositóri
 
 <img src="https://github.com/mpbahia/hackathon2019/blob/master/create_pull_img.PNG" width="80%" title="Pull Request">
 
--Adicionar o nome da equipe, fazer comentários se necessário e criar o *Pull Request*.
+-Adicionar o nome da equipe, fazer comentários se necessário e clicar no botão *Create Pull Request*.
 
 <img src="https://github.com/mpbahia/hackathon2019/blob/master/nome_equipe_img.PNG" width="80%" title="Pull Request">
