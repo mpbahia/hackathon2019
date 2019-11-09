@@ -1,6 +1,6 @@
-## NOME DA EQUIPE
+## Script Kiddie
 **Descrição do projeto desenvolvido:** 
-  Sistema web e mobile com a função de simplificar a inspeção do MP nas unidades de acolhimento da criança e adolescente. A versão mobile tem a função de atuar como um formulário digital que vai enviar os dados para um servidor. A partir desses dados a verão WEB funciona como um dashboard para exibir de forma simplificada os dados.
+  O sistema SUAMP (Sistema unificado de acolhimento do Ministério público). O sistema web e mobile tem a função de simplificar a inspeção do MP nas unidades de acolhimento da criança e adolescente. A versão mobile tem a função de atuar como um formulário digital que vai enviar os dados para um servidor. A partir desses dados a verão WEB funciona como um dashboard para exibir de forma simplificada os dados.
 **Linguagens de programação utilizadas:**
 - Javascript
 - SQL Server
