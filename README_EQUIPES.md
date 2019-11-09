@@ -1,20 +1,27 @@
-## NOME DA EQUIPE
-**Descrição do projeto desenvolvido:** 
+## Rocket
+Price Analytics
+
+Desenvolvido no Hackaton MPBA 2019, Pega Fraude é um sistema que viabiliza
+a comparação de preços de produtos/bens/serviços do mercado com preços de produtos adquiridos
+em licitações.
+
+O projeto visa sanar o desafio da improbidade administrativa do MPBA.
 
 **Linguagens de programação utilizadas:**
-- Linguagem 1
-- Linguagem 2
+- Javascript
 
 **Ferramentas utilizadas:**
-- Ferramenta 1
-- Ferramenta 2
+- QLik Sense
+- React JS
 
 **Equipe:**
 
 | Nome | Função | Redes | Github/Bitbucket | Site pessoal |
 | ------------- | ------------- | ------------- | ------------- | ------------- | 
-|  Fulano  | Developer / Designer  | [Facebook](https://www.facebook.com/MPBA), [Linkedin](https://br.linkedin.com/pub/MPBA) | @Fulano | [Fulano.com.br](http://https://mpba.mp.br/) | 
+|  Jimmy Starling | Developer | [Facebook](https://www.facebook.com/jimmystarling)| Wesley Neves - Desenvolvimento | Ariele  Guimarães - Business | Iara Barreto - Business | Thiago Gomes - Desenvolvimento
 
 **Descrição de execução do código:** 
 
-Descrever de forma detalhada como executar o projeto desenvolvido.
+### Como executar
+Basta digitar `yarn start` caso tenha o yarn instalado
+ou `npm start` caso tenha o npm instalado.
