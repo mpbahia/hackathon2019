@@ -20,4 +20,6 @@ npm run serve
 
 e acesse o link localhost:8080
 
+Para utilizar o banco de dados favor subir o arquivo .dump encontrado na pasta DB em servidor MYSQL
+
 
