@@ -1,4 +1,4 @@
-## NOME DA EQUIPE
+## WINZIP
 **Descrição do projeto desenvolvido:** 
 
 **Linguagens de programação utilizadas:**
