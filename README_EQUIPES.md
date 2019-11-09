@@ -1,20 +1,22 @@
-## NOME DA EQUIPE
+## WINZIP
 **Descrição do projeto desenvolvido:** 
-
+  Projeto voltado a orientar a vítima de crimes dos mais diversos tipos como realizar a denúncia no órgão competente.
 **Linguagens de programação utilizadas:**
-- Linguagem 1
-- Linguagem 2
+- PHP
+- JS
 
 **Ferramentas utilizadas:**
-- Ferramenta 1
-- Ferramenta 2
-
+ Framework Laravel
+ Jquery
 **Equipe:**
 
 | Nome | Função | Redes | Github/Bitbucket | Site pessoal |
 | ------------- | ------------- | ------------- | ------------- | ------------- | 
-|  Fulano  | Developer / Designer  | [Facebook](https://www.facebook.com/MPBA), [Linkedin](https://br.linkedin.com/pub/MPBA) | @Fulano | [Fulano.com.br](http://https://mpba.mp.br/) | 
+|  Vailson Silva | Developer / Designer  | 
+|Bianca Meireles|Comunicação e Conteúdo||
+|Antônio Laranjeira |Comunicação e Conteúdo|
+|Matheus Cerqueira| Suporte Operacional|
 
 **Descrição de execução do código:** 
 
-Descrever de forma detalhada como executar o projeto desenvolvido.
+
