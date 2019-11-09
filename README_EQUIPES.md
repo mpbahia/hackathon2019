@@ -12,12 +12,19 @@
 **Equipe:**
 
 | Nome | Função | 
-| ------------- | ------------- | ------------- | ------------- | ------------- | 
-|  Fulano  | Developer / Designer  |
+| ------------- | ------------- | 
+|  Davi  | Developer / Mobile / Banco de dados |
+| ------------- | ------------- | 
+|  João  | Developer / Web  / Banco de dados|
+| ------------- | ------------- | 
+|  Juliana  | Designer / Gestão de equipe  |
+| ------------- | ------------- | 
+|  Reinan  | Developer / Designer  |
+| ------------- | ------------- | 
+|  Victor  | Developer / Gestão da equipe  / |
 
 **Descrição de execução do código:** 
-Mobile: Após a instalação da aplicação, o usuário que vai a campo é redirecionado a um formulário digital depois de realizar o login. O usuário vai seguindo os passos que são apresentados pela aplicação afim de concluir a inserção do relatório.
+Abrir o diretório SUAMP e escolher entre visualizar a aplicação web no diretório Web-View, e para visualizar o protótipo da versão mobile. 
+Mobile: Após abrir a aplicação, o usuário que vai a campo é redirecionado a um formulário digital depois de realizar o login. O usuário vai seguindo os passos que são apresentados pela aplicação afim de concluir a inserção do relatório.
 
 Web: O usuário que utiliza da aplicação web faz o login na página do sistema (url a definir), e é direcionado à página de cidades do munícipio e suas situações. O usuário vai navegando entre as telas a partir dos botões de navegação que indicam detalhamento de dados.
-
-Descrever de forma detalhada como executar o projeto desenvolvido.
