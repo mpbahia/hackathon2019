@@ -1,20 +1,37 @@
-## NOME DA EQUIPE
+﻿## Vingadores
 **Descrição do projeto desenvolvido:** 
+Ferramenta de Denúncia anônima para os gestores escolares denunciarem possiveis tipos de abuso de crianças e adolescentes.
 
 **Linguagens de programação utilizadas:**
-- Linguagem 1
-- Linguagem 2
+- C#
+
 
 **Ferramentas utilizadas:**
-- Ferramenta 1
-- Ferramenta 2
+- Visual Studio 2017
+- SQLite Studio
 
 **Equipe:**
 
 | Nome | Função | Redes | Github/Bitbucket | Site pessoal |
 | ------------- | ------------- | ------------- | ------------- | ------------- | 
-|  Fulano  | Developer / Designer  | [Facebook](https://www.facebook.com/MPBA), [Linkedin](https://br.linkedin.com/pub/MPBA) | @Fulano | [Fulano.com.br](http://https://mpba.mp.br/) | 
+|  Beatriz de Oliveira Rangel  | Developer | - | @raangelbeatriz | - | 
+
+|  Caludionor Júnio Santos Silva  | Developer / Designer  | - | - | - | 
+
+|  Francislene Cerqueira Ferreira  | Developer / Designer  | - | - | - | 
+
+|  Júlio Matheus Santos e Santos  | Developer / Designer  | - | @RyanTheKingOfForest | - | 
+
+|  Luiz Felipe da Silva  | Developer / Designer  | - | - | - | 
+
+| Rafael Santos da Conceição | Developer / Designer  | - | - | - | 
 
 **Descrição de execução do código:** 
 
-Descrever de forma detalhada como executar o projeto desenvolvido.
+Preencher o formulario com as informações que serão enviadas de forma anônima aos orgãos responsáveis, para que as medidas cabiveis sejam tomadas, verificando a reincidência da denúncia.
+Ao abrir o primeiro form será necessário preencher as seguintes informações:Estado,municipio e bairro, em seguida clicar no botão avançar para redirecionar para a próxima página
+Ao abrir o segundo form denúncia será necessário preencher as seguintes informações:Nome da escola, nome do aluno, idade e série, em seguida clicar no botão avançar para redirecionar para a próxima página.
+Ao abrir o terceiro form preenche qual o tipo de denúncia e seleciona qual a reincidência que define para qual orgão será encaminhado a denúncia.ao clicar no botão denunciar aparecerá uma mensagem de confirmação.
+
+Obs.: Devido ao tamanho do arquivo, não conseguimos disponibilizar o projeto atraves do GitHub, o projeto será adcionado no Drive que será disponibilizado para download no seguinte link:https://drive.google.com/open?id=1R5eAvULxVxCHJryXM7NDwSh1YVAyWSgX
+
