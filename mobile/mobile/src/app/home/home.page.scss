@@ -1,0 +1,79 @@
+.welcome-card img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+.photoButton {
+  border-radius: 5px;
+  margin: 10px 3px;
+  justify-self: center;
+  // width: 60%;
+}
+
+span {
+  margin-left: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  // height:  100%;
+  width: 100%;
+}
+
+label {
+  margin-left: 10px;
+  margin-top: 10%;
+  width: 100%;
+  color: #333333aa;
+  font-size: 16px;
+  span {
+    font-weight: bold;
+    margin-left: auto;
+  }
+}
+
+.input {
+  width: 100%;
+  margin-top: 3%;
+  height: auto;
+  flex: 1;
+  border-bottom: 1px solid #eeeeeeee;
+}
+
+#mainWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.buttonWrapper {
+  width: 100%;
+  max-height: 20%;
+  display: flex;
+  flex: 1;
+  align-self: flex-start;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.emergencyButton {
+  margin: 5% 5%;
+  align-self: flex-end;
+  justify-self: flex-end;
+}
+
+.defaultWrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
