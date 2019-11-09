@@ -1,20 +1,40 @@
-## NOME DA EQUIPE
+## Code Pricer
 **Descrição do projeto desenvolvido:** 
+- A aplicação desenvolvida pela equipe atuará em duas 
+frentes para sanar as dores propostas pelo MPBA de forma preventiva e corretiva. 
+A aplicação coleta na internet valores de produtos que foram, ou serão, adiquiridos pelo estado ou qualquer entidade 
+pública para servir como uma referência de compra de produtos.
 
 **Linguagens de programação utilizadas:**
-- Linguagem 1
-- Linguagem 2
+- Javascript
 
 **Ferramentas utilizadas:**
-- Ferramenta 1
-- Ferramenta 2
+- NodeJS
+- Visual Studio Code
 
-**Equipe:**
+**Equipe: Code Pricer**
 
 | Nome | Função | Redes | Github/Bitbucket | Site pessoal |
 | ------------- | ------------- | ------------- | ------------- | ------------- | 
-|  Fulano  | Developer / Designer  | [Facebook](https://www.facebook.com/MPBA), [Linkedin](https://br.linkedin.com/pub/MPBA) | @Fulano | [Fulano.com.br](http://https://mpba.mp.br/) | 
+| Ralf Junior Lima Velane da Silva  | Gestor de projetos | https://www.linkedin.com/in/ralfvelane | @RVelane | Não tem | 
+| Emanuel Oliveira Salvador Souza | Analista de Projeto | https://www.linkedin.com/in/emanuel-oliveira-souza-ba-ti058a125 | @EmanuelOSSouza | Não tem | 
+| Patrick Correia de Carvalho | Full Stack | Não tem | @PatrickDev3Loper | Não tem | 
+| Paulo Renan Tavares Almeida de Souza | Modelagem de Banco |  | @NannAlmeida | Não tem | 
+| Iarley Porto Cruz Moraes | Analista de Projeto/Banco de Dados | https://www.linkedin.com/in/iarley-moraes-931610125 | @Rytokirin21 | Não tem | 
 
 **Descrição de execução do código:** 
 
-Descrever de forma detalhada como executar o projeto desenvolvido.
+- É necessário ter o NodeJS versão 12.13.0 LTS.
+- É necessário a instalação das bibliotecas: request, express, path do nodeJS.
+- Acesso a internet.
+ 
+
+- Configurar a porta do servidor no arquivo server.js
+- Inicializar o server.js utilizando o nodeJS
+- Acessar no navegador localhost:porta configurada
+ 
+
+- Acessar o site
+- Colocar o nome do produto na barra de pesquisa
+- Clicar no botão para pesquisar
+
