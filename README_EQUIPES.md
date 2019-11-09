@@ -12,7 +12,10 @@
 
 | Nome | Função | Redes | Github/Bitbucket | Site pessoal |
 | ------------- | ------------- | ------------- | ------------- | ------------- | 
-|  Vailson  | Developer / Designer  |  | 
+|  Vailson Silva | Developer / Designer  | 
+|Bianca Meireles|Comunicação e Conteúdo||
+|Antônio Laranjeira |Comunicação e Conteúdo|
+|Matheus Cerqueira| Suporte Operacional|
 
 **Descrição de execução do código:** 
 
