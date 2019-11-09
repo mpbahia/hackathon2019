@@ -1,0 +1,23 @@
+.img_inside_div img{
+    width: 100%;
+    height: 250px;
+    background: url("../img/img.png") no-repeat center;
+   position: relative;
+}
+
+#table_design{
+    border-radius: 20px;
+}
+
+#table_design th{
+font-size: 16px;
+}
+
+
+#table_design td{
+padding: 15px;
+font-weight: bold;
+}
+
+
+
