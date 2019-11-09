@@ -21,7 +21,6 @@ Assistente virtual com recursos de acessibilidade digital e utilização de geor
 |  Jailson Santos  | Developer   | [Facebook](https://www.facebook.com/MPBA), [Linkedin](https://br.linkedin.com/pub/MPBA) | @Fulano | [Fulano.com.br](http://https://mpba.mp.br/) |
 
 **Descrição de execução do código:** 
-
-1-Fazer download do projeto e extrair
-2-Executar o Android Studio IDE e abrir o projeto
-3-Clicar em RUN ou ALT+SHIFT+10
+1- Fazer download do projeto e extrair
+2- Executar o Android Studio IDE e abrir o projeto
+3- Clicar em RUN ou ALT+SHIFT+10
