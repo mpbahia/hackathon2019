@@ -1,0 +1,550 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.6.9
+-- Dumped by pg_dump version 11.2
+
+-- Started on 2019-11-09 14:26:04
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 5 (class 2615 OID 71720916)
+-- Name: hack; Type: SCHEMA; Schema: -; Owner: jti
+--
+
+CREATE SCHEMA hack;
+
+
+ALTER SCHEMA hack OWNER TO jti;
+
+--
+-- TOC entry 216 (class 1255 OID 71720982)
+-- Name: f_call_message(text); Type: FUNCTION; Schema: hack; Owner: jti
+--
+
+CREATE FUNCTION hack.f_call_message(p_jsonstr text) RETURNS text
+    LANGUAGE plpgsql
+    AS $$
+
+  declare
+	v_text text;
+	v_termos text;
+	v_id_atendimento text;
+    v_id_dialogo text;
+    v_texto_digitado text;
+  begin
+	  
+	  p_jsonStr := REPLACE (p_jsonStr, '/start', 'start');
+	  select p_jsonStr::json->'idAtendimento' into v_id_atendimento;
+	  select p_jsonStr::json->'entradaUsuario' into v_termos;
+	  select p_jsonStr::json->'textoDigitado' into v_texto_digitado;
+	  v_termos := REPLACE (v_termos, 'start', '/start');
+	 
+	  -- Gravar em sessao
+	  INSERT INTO hack.atendimento (id, id_canal) VALUES(v_id_atendimento, 2)
+	  on conflict (id) do update set data = now();
+	 
+	  select id into v_id_dialogo from hack.dialogo d where d.termos = REPLACE (v_termos, '"', '');
+	  
+	  -- gravar em log
+	  INSERT INTO hack.log_conversa (id_sessao, id_dialogo,entrada_usuario) VALUES(v_id_atendimento, v_id_dialogo,v_texto_digitado);
+	  
+	  select row_to_json(t) INTO v_text
+	  from ( select texto, proxima_acao from hack.dialogo d where d.termos = REPLACE (v_termos, '"', '')) t;
+	 
+	  			
+	return v_text;
+  exception
+	when others then
+		rollback;
+		return 0;
+  end;
+  $$;
+
+
+ALTER FUNCTION hack.f_call_message(p_jsonstr text) OWNER TO jti;
+
+--
+-- TOC entry 215 (class 1255 OID 71720986)
+-- Name: trigger_f_log_conversa_trg(); Type: FUNCTION; Schema: hack; Owner: jti
+--
+
+CREATE FUNCTION hack.trigger_f_log_conversa_trg() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF TG_OP = 'INSERT' AND NEW.id_sequencia IS NULL THEN
+      SELECT nextval('hack.log_conversa_seq') INTO NEW.id_sequencia;
+    END IF;
+  END COLUMN_SEQUENCES;
+RETURN NEW;
+END
+$$;
+
+
+ALTER FUNCTION hack.trigger_f_log_conversa_trg() OWNER TO jti;
+
+--
+-- TOC entry 217 (class 1255 OID 71848114)
+-- Name: urlencode(text); Type: FUNCTION; Schema: hack; Owner: jti
+--
+
+CREATE FUNCTION hack.urlencode(text) RETURNS text
+    LANGUAGE sql IMMUTABLE STRICT
+    AS $_$
+	select
+    string_agg(
+      case
+        when ol>1 or ch !~ '[0-9a-zA-Z:/@._?#-]+' 
+          then regexp_replace(upper(substring(ch::bytea::text, 3)), '(..)', E'%\\1', 'g')
+        else ch
+      end,
+      ''
+    )
+  from (
+    select ch, octet_length(ch) as ol
+    from regexp_split_to_table($1, '') as ch
+  ) as s;
+$_$;
+
+
+ALTER FUNCTION hack.urlencode(text) OWNER TO jti;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 197 (class 1259 OID 71720923)
+-- Name: atendimento; Type: TABLE; Schema: hack; Owner: jti
+--
+
+CREATE TABLE hack.atendimento (
+    id character varying NOT NULL,
+    id_canal integer NOT NULL,
+    data timestamp without time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE hack.atendimento OWNER TO jti;
+
+--
+-- TOC entry 196 (class 1259 OID 71720917)
+-- Name: canal; Type: TABLE; Schema: hack; Owner: jti
+--
+
+CREATE TABLE hack.canal (
+    id integer NOT NULL,
+    tipo character varying NOT NULL,
+    nome character varying
+);
+
+
+ALTER TABLE hack.canal OWNER TO jti;
+
+--
+-- TOC entry 198 (class 1259 OID 71720939)
+-- Name: dialogo; Type: TABLE; Schema: hack; Owner: jti
+--
+
+CREATE TABLE hack.dialogo (
+    id character varying NOT NULL,
+    termos text,
+    tipo character varying,
+    texto text,
+    proxima_acao character varying
+);
+
+
+ALTER TABLE hack.dialogo OWNER TO jti;
+
+--
+-- TOC entry 3061 (class 0 OID 0)
+-- Dependencies: 198
+-- Name: COLUMN dialogo.termos; Type: COMMENT; Schema: hack; Owner: jti
+--
+
+COMMENT ON COLUMN hack.dialogo.termos IS 'Json - Lista de palavras chave';
+
+
+--
+-- TOC entry 3062 (class 0 OID 0)
+-- Dependencies: 198
+-- Name: COLUMN dialogo.tipo; Type: COMMENT; Schema: hack; Owner: jti
+--
+
+COMMENT ON COLUMN hack.dialogo.tipo IS '1-Exato; 2-Lista de opcoes; 3 - Orientacao';
+
+
+--
+-- TOC entry 3063 (class 0 OID 0)
+-- Dependencies: 198
+-- Name: COLUMN dialogo.proxima_acao; Type: COMMENT; Schema: hack; Owner: jti
+--
+
+COMMENT ON COLUMN hack.dialogo.proxima_acao IS 'ids de dialogos da lista';
+
+
+--
+-- TOC entry 199 (class 1259 OID 71720947)
+-- Name: log_conversa; Type: TABLE; Schema: hack; Owner: jti
+--
+
+CREATE TABLE hack.log_conversa (
+    id_sessao character varying NOT NULL,
+    id_sequencia integer NOT NULL,
+    id_dialogo character varying,
+    entrada_usuario text
+);
+
+
+ALTER TABLE hack.log_conversa OWNER TO jti;
+
+--
+-- TOC entry 200 (class 1259 OID 71720984)
+-- Name: log_conversa_seq; Type: SEQUENCE; Schema: hack; Owner: jti
+--
+
+CREATE SEQUENCE hack.log_conversa_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE hack.log_conversa_seq OWNER TO jti;
+
+--
+-- TOC entry 3052 (class 0 OID 71720923)
+-- Dependencies: 197
+-- Data for Name: atendimento; Type: TABLE DATA; Schema: hack; Owner: jti
+--
+
+COPY hack.atendimento (id, id_canal, data) FROM stdin;
+"whatsapp:+557188533685"	2	2019-11-09 13:55:35.888589
+"whatsapp:+557186922933"	2	2019-11-09 14:01:17.726187
+"whatsapp:+557182716394"	2	2019-11-09 03:01:55.350145
+2	2	2019-11-09 09:28:09.65279
+"whatsapp:+557188464765"	2	2019-11-09 14:08:12.47136
+"whatsapp:+557193278256"	2	2019-11-09 14:15:42.167048
+1	2	2019-11-09 00:07:22.362307
+"whatsapp:+557194133309"	2	2019-11-09 13:42:29.426053
+"whatsapp:+5571920003786"	2	2019-11-09 15:10:25.240617
+\.
+
+
+--
+-- TOC entry 3051 (class 0 OID 71720917)
+-- Dependencies: 196
+-- Data for Name: canal; Type: TABLE DATA; Schema: hack; Owner: jti
+--
+
+COPY hack.canal (id, tipo, nome) FROM stdin;
+1	app	Whatsapp
+2	app	Instagram
+3	web	Portal MP
+\.
+
+
+--
+-- TOC entry 3053 (class 0 OID 71720939)
+-- Dependencies: 198
+-- Data for Name: dialogo; Type: TABLE DATA; Schema: hack; Owner: jti
+--
+
+COPY hack.dialogo (id, termos, tipo, texto, proxima_acao) FROM stdin;
+2	violenciaMulher	1	Por favor, informe *onde você está localizada* para que eu possa identificar para qual órgão devo te encaminhar. Pode ser uma Rua, um Bairro ou Cidade.	posLocalidade
+3	posLocalidade	1	Após analisar as informações apresentadas, aconselho que você se dirija imediatamente ao *GEDEM* (Grupo de Atuação Especial em Defesa da Mulher do Ministério Público do Estado da Bahia).\r\nAtua na proteção e na defesa dos direitos das mulheres em situação de violência doméstica, familiar e de gênero, localizado em *Jardim Baiano - R. Arquimedes Gonçalves, 142 - Nazaré*. \r\nPor favor, leia com *atenção*: se voce estiver *ferida*, procure um centro de atendimento e narre o acontecido, não queremos que você se machuque mais. Tente guardar por escrito, com datas e horários os acontecimentos de violência, isto te ajudará a denunciar o seu agressor. Verifique a existência de *locais seguros* perto de sua casa, onde você possa ficar até que a ajuda possa chegar. Ficou claro para você?	registroOcorrencia
+4	registroOcorrencia	1	Para agilizar seu atendimento, o Ministério Público da Bahia conta com um serviço de agendamento prévio. Gostaria de fazer este registro?	registroOcorrenciaSim
+1	/start	1	Olá, sou a Iracema, a assistente virtual do Ministério Público do Estado da Bahia. Que tipo de informação gostaria de acionar?\r\n*1 -* Violência contra mulher;\r\n*2 -* Tráfico de drogas;\r\n*3 -* Homicídio;\r\n*4 -* Patrimônio;\r\n*5 -* Outros	violenciaMulher
+5	registroOcorrenciaSim	1	Qual é o seu nome?	registroOcorrenciaTelefone
+6	registroOcorrenciaTelefone	1	Posso usar o número do seu celular utilizado nesse canal como seu contato?	registroOcorrenciaTelefoneSim
+7	registroOcorrenciaTelefoneSim	1	Obrigada pelas informações. Sua demanda foi registrada e já estou a encaminhando para o órgão responsável. Você gostaria de receber atualizações da sua denúncia por aqui?	seguindoManifestacao
+10	recomendaServico	1	Achou este serviço importante para pessoas do seu convívio?\r\nPor favor, *compartilhe* para que cada vez mais pessoas possam ser beneficiadas.\r\nhttps://wa.me/14155238886?text=join%20meet-pain\r\nMuito obrigada e *conte comigo* sempre que precisar!	/start
+8	seguindoManifestacao	1	Espero que você possa se sentir segura novamente, e para isto, estaremos aqui trabalhando em prol da sua melhora e aguardando ansiosamente pela sua recuperação.\r\nVocê ficou satisfeita com o  atendimento?\r\n*1 -* Muito insatisfeita;\r\n*2 -* Insatisfeita;\r\n*3 -* Indiferente;\r\n*4 -* Satisfeita;\r\n*5 -* Muito satisfeita.	tranquilizarVitima
+11	tranquilizarVitima	1	Peço que se você estiver se sentindo *intimidada*, ou estiver receosa de que alguém possa saber sobre essa interação,saiba que sempre *poderá apagar o histórico* dessa conversa, para que sua segurança seja priorizada, mas informo de antemão que pode ficar tranquila, pois as informações aqui apresentadas estarão nas mãos das autoridades especializadas o mais rápido possivel, tudo bem?	recomendaServico
+9	feddback	1	O que achou deste atendimento? 1 - Me atendeu totalmente; 2 - Atendeu, mas não consegui todas as informações que queria; 3 - Foi razoável, podendo melhorar; 4 - Não me atendeu	recomendaServico
+\.
+
+
+--
+-- TOC entry 3054 (class 0 OID 71720947)
+-- Dependencies: 199
+-- Data for Name: log_conversa; Type: TABLE DATA; Schema: hack; Owner: jti
+--
+
+COPY hack.log_conversa (id_sessao, id_sequencia, id_dialogo, entrada_usuario) FROM stdin;
+"whatsapp:+557188464765"	193	2	"start"
+"whatsapp:+557188464765"	194	3	"vila laura"
+"whatsapp:+557188464765"	195	4	"teste"
+"whatsapp:+557188464765"	196	5	"teste"
+"whatsapp:+557188464765"	197	6	"teste"
+"whatsapp:+557188464765"	198	7	"teste"
+"whatsapp:+557188464765"	199	8	"teste"
+"whatsapp:+557188464765"	200	11	"teste"
+"whatsapp:+557188464765"	201	10	"teste"
+"whatsapp:+557188464765"	202	1	"teste"
+"whatsapp:+557188464765"	203	1	"oi"
+"whatsapp:+557194133309"	204	1	"Oi"
+"whatsapp:+557194133309"	205	2	"6"
+"whatsapp:+557194133309"	206	3	"Rua do Cabral 65"
+"whatsapp:+557194133309"	207	4	"Sim"
+"whatsapp:+557194133309"	208	5	"NÃ£o"
+"whatsapp:+557194133309"	209	6	"Gustavo"
+"whatsapp:+557194133309"	210	7	"NÃ£o"
+"whatsapp:+557194133309"	211	8	"Sim"
+"whatsapp:+557194133309"	212	11	"4"
+"whatsapp:+557194133309"	213	10	"Ok"
+"whatsapp:+557188464765"	214	2	"er"
+"whatsapp:+557188464765"	215	3	"pituba"
+"whatsapp:+557188533685"	216	1	"Oi"
+"whatsapp:+557188533685"	217	2	"1"
+"whatsapp:+557188533685"	218	3	"Nordeste de Amaralina"
+"whatsapp:+557188533685"	219	4	"NÃ£o sei"
+"whatsapp:+557188533685"	220	5	"Claro!"
+"whatsapp:+557188533685"	221	6	"Matheus Andrade!!!"
+"whatsapp:+557188533685"	222	7	"Pode"
+"whatsapp:+557188533685"	223	8	"Oxente! Ã claro"
+"whatsapp:+557188533685"	224	11	"5"
+"whatsapp:+557193278256"	225	1	"Oi"
+"whatsapp:+557193278256"	226	2	"1"
+"whatsapp:+557188533685"	227	10	"Tudo"
+"whatsapp:+557193278256"	228	3	"Pituba"
+"whatsapp:+557193278256"	229	4	"Sim"
+"whatsapp:+557188533685"	230	1	"Obrigado"
+"whatsapp:+557193278256"	231	5	"8"
+"whatsapp:+557193278256"	232	6	"Lindo"
+"whatsapp:+557193278256"	233	7	"Yes"
+"whatsapp:+557186922933"	93	3	"lobato"
+"whatsapp:+557186922933"	234	1	"Oi"
+"whatsapp:+557193278256"	235	8	"â"
+"whatsapp:+557194133309"	53	1	\N
+"whatsapp:+557182716394"	54	1	\N
+"whatsapp:+557194133309"	55	1	\N
+"whatsapp:+557182716394"	56	1	\N
+"whatsapp:+557182716394"	57	2	\N
+"whatsapp:+557182716394"	59	4	\N
+"whatsapp:+557182716394"	60	5	\N
+"whatsapp:+557182716394"	61	6	\N
+"whatsapp:+557182716394"	62	7	\N
+"whatsapp:+557182716394"	63	8	\N
+"whatsapp:+557182716394"	64	9	\N
+"whatsapp:+557182716394"	65	10	\N
+"whatsapp:+557182716394"	66	1	\N
+"whatsapp:+557182716394"	67	2	\N
+"whatsapp:+557188533685"	68	1	\N
+"whatsapp:+557188533685"	70	2	\N
+"whatsapp:+557182716394"	79	1	\N
+"whatsapp:+557186922933"	104	1	"Oi"
+"whatsapp:+557182716394"	58	3	"rio vermelho"
+"whatsapp:+557188533685"	72	3	"patamares"
+"whatsapp:+557194133309"	81	1	\N
+"whatsapp:+557194133309"	82	1	"Oi"
+"whatsapp:+557193278256"	83	1	"Oi gostaria de ajuda"
+"whatsapp:+557193278256"	84	2	"1"
+"whatsapp:+557193278256"	85	3	"Paralela Salvador"
+"whatsapp:+557193278256"	86	4	"Ok"
+"whatsapp:+557193278256"	87	5	"Sim"
+"whatsapp:+557193278256"	88	6	"Jessica"
+"whatsapp:+557193278256"	89	7	"2"
+"whatsapp:+557193278256"	90	8	"Sim"
+"whatsapp:+557186922933"	91	1	"Oi"
+"whatsapp:+557186922933"	92	2	"1"
+"whatsapp:+557186922933"	94	4	"Sim"
+"whatsapp:+557186922933"	95	5	"Sim"
+"whatsapp:+557186922933"	96	6	"Ione"
+"whatsapp:+557186922933"	97	7	"1"
+"whatsapp:+557186922933"	98	8	"Sim"
+"whatsapp:+557186922933"	106	2	"1"
+"whatsapp:+557193278256"	107	1	"Oi"
+"whatsapp:+557194133309"	108	1	"Oi"
+"whatsapp:+557193278256"	110	2	"1"
+"whatsapp:+557193278256"	113	4	"Sim"
+"whatsapp:+557186922933"	114	4	"Sim"
+"whatsapp:+557193278256"	115	5	"Sim"
+"whatsapp:+557186922933"	117	5	"Sim"
+"whatsapp:+557193278256"	118	6	"Geovan"
+"whatsapp:+557186922933"	119	6	"Ione"
+"whatsapp:+557193278256"	120	7	"1"
+"whatsapp:+557186922933"	121	7	"1"
+"whatsapp:+557186922933"	122	8	"Sim"
+"whatsapp:+557193278256"	123	8	"Sim"
+"whatsapp:+557186922933"	125	10	"1"
+"whatsapp:+557194133309"	126	2	"Oi"
+"whatsapp:+557194133309"	128	4	"Sim"
+"whatsapp:+557194133309"	129	5	"Sim"
+"whatsapp:+557194133309"	130	6	"Gustavo"
+"whatsapp:+557186922933"	131	11	"Ok"
+"whatsapp:+557194133309"	132	7	"1"
+"whatsapp:+557186922933"	133	1	"Ok"
+"whatsapp:+557194133309"	134	8	"Sim"
+"whatsapp:+557194133309"	135	10	"5"
+"whatsapp:+557194133309"	139	11	"Oi"
+"whatsapp:+557186922933"	141	2	"1"
+"whatsapp:+557186922933"	236	2	"2"
+"whatsapp:+557193278256"	143	10	"OlÃ¡"
+"whatsapp:+557186922933"	109	3	
+"whatsapp:+557193278256"	112	3	
+"whatsapp:+557194133309"	127	3	
+"whatsapp:+557193278256"	180	3	
+"whatsapp:+557186922933"	237	3	
+"whatsapp:+557186922933"	151	3	
+"whatsapp:+557186922933"	152	4	"Sim"
+"whatsapp:+557186922933"	153	5	"Sim"
+"whatsapp:+557186922933"	154	6	"Ione"
+"whatsapp:+557186922933"	155	7	"1"
+"whatsapp:+557186922933"	156	8	"Sim"
+"whatsapp:+557186922933"	157	11	"1"
+"whatsapp:+557186922933"	158	10	"Sim"
+"whatsapp:+557186922933"	159	1	"Oi"
+"whatsapp:+557186922933"	160	2	"1"
+"whatsapp:+557186922933"	162	4	"Sim"
+"whatsapp:+557186922933"	163	5	"Sim"
+"whatsapp:+557186922933"	164	6	"Ione"
+"whatsapp:+557186922933"	165	7	"1"
+"whatsapp:+557186922933"	166	8	"Sim"
+"whatsapp:+557186922933"	167	11	"1"
+"whatsapp:+557186922933"	168	10	"Sim"
+"whatsapp:+557194133309"	169	10	"Oi"
+"whatsapp:+557194133309"	170	1	"Valeu"
+"whatsapp:+557194133309"	171	2	"5"
+"whatsapp:+557186922933"	161	3	
+"whatsapp:+557194133309"	174	3	
+"whatsapp:+557194133309"	175	4	"Sim"
+"whatsapp:+557194133309"	176	5	"Sim"
+"whatsapp:+557193278256"	177	1	"Oi gostaria de informaÃ§Ã£o"
+"whatsapp:+557194133309"	178	6	"Gustavo"
+"whatsapp:+557193278256"	179	2	"1"
+"whatsapp:+557194133309"	181	7	"3"
+"whatsapp:+557194133309"	182	8	"SÃ³"
+"whatsapp:+557194133309"	183	11	"5"
+"whatsapp:+557193278256"	184	4	"Sim"
+"whatsapp:+557193278256"	185	5	"Sim"
+"whatsapp:+557194133309"	186	10	"Ok"
+"whatsapp:+557193278256"	187	6	"Geovana"
+"whatsapp:+557193278256"	188	7	"Pode"
+"whatsapp:+557194133309"	189	1	"Valeu!"
+"whatsapp:+557193278256"	190	8	"Quero"
+"whatsapp:+557188464765"	191	1	"start"
+"whatsapp:+557188464765"	238	4	"olÃ¡"
+"whatsapp:+557188464765"	239	5	"blz"
+"whatsapp:+557188464765"	240	6	"andre"
+"whatsapp:+557188464765"	241	7	"sim"
+"whatsapp:+557188464765"	242	8	"sim"
+"whatsapp:+557188464765"	243	11	"1"
+"whatsapp:+557188464765"	244	10	"tudo"
+"whatsapp:+557188464765"	245	1	"ok"
+"whatsapp:+557188464765"	246	2	"vamos"
+"whatsapp:+557188464765"	247	3	"cajazeiras"
+"whatsapp:+557193278256"	248	11	"Oi"
+"whatsapp:+557193278256"	249	10	"Ok"
+"whatsapp:+5571920003786"	250	1	"oi"
+"whatsapp:+5571920003786"	251	2	"3"
+"whatsapp:+5571920003786"	252	3	""
+"whatsapp:+5571920003786"	253	4	"oi"
+"whatsapp:+5571920003786"	254	5	"nÃ£o"
+"whatsapp:+5571920003786"	255	6	"mestre dos magos"
+"whatsapp:+5571920003786"	256	7	"nÃ£o"
+"whatsapp:+5571920003786"	257	8	"parabÃ©ns e boa sorte!"
+\.
+
+
+--
+-- TOC entry 3064 (class 0 OID 0)
+-- Dependencies: 200
+-- Name: log_conversa_seq; Type: SEQUENCE SET; Schema: hack; Owner: jti
+--
+
+SELECT pg_catalog.setval('hack.log_conversa_seq', 257, true);
+
+
+--
+-- TOC entry 2923 (class 2606 OID 71720933)
+-- Name: canal canal_pk; Type: CONSTRAINT; Schema: hack; Owner: jti
+--
+
+ALTER TABLE ONLY hack.canal
+    ADD CONSTRAINT canal_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2927 (class 2606 OID 71720946)
+-- Name: dialogo dialogo_pk; Type: CONSTRAINT; Schema: hack; Owner: jti
+--
+
+ALTER TABLE ONLY hack.dialogo
+    ADD CONSTRAINT dialogo_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2929 (class 2606 OID 71720954)
+-- Name: log_conversa log_conversa_pk; Type: CONSTRAINT; Schema: hack; Owner: jti
+--
+
+ALTER TABLE ONLY hack.log_conversa
+    ADD CONSTRAINT log_conversa_pk PRIMARY KEY (id_sessao, id_sequencia);
+
+
+--
+-- TOC entry 2925 (class 2606 OID 71720956)
+-- Name: atendimento sessao_pk; Type: CONSTRAINT; Schema: hack; Owner: jti
+--
+
+ALTER TABLE ONLY hack.atendimento
+    ADD CONSTRAINT sessao_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2933 (class 2620 OID 71720987)
+-- Name: log_conversa log_conversa_trg; Type: TRIGGER; Schema: hack; Owner: jti
+--
+
+CREATE TRIGGER log_conversa_trg BEFORE INSERT ON hack.log_conversa FOR EACH ROW EXECUTE PROCEDURE hack.trigger_f_log_conversa_trg();
+
+
+--
+-- TOC entry 2931 (class 2606 OID 71720957)
+-- Name: log_conversa log_conversa_fk; Type: FK CONSTRAINT; Schema: hack; Owner: jti
+--
+
+ALTER TABLE ONLY hack.log_conversa
+    ADD CONSTRAINT log_conversa_fk FOREIGN KEY (id_sessao) REFERENCES hack.atendimento(id);
+
+
+--
+-- TOC entry 2932 (class 2606 OID 71720962)
+-- Name: log_conversa log_conversa_fk2; Type: FK CONSTRAINT; Schema: hack; Owner: jti
+--
+
+ALTER TABLE ONLY hack.log_conversa
+    ADD CONSTRAINT log_conversa_fk2 FOREIGN KEY (id_dialogo) REFERENCES hack.dialogo(id);
+
+
+--
+-- TOC entry 2930 (class 2606 OID 71720934)
+-- Name: atendimento sessao_fk; Type: FK CONSTRAINT; Schema: hack; Owner: jti
+--
+
+ALTER TABLE ONLY hack.atendimento
+    ADD CONSTRAINT sessao_fk FOREIGN KEY (id_canal) REFERENCES hack.canal(id);
+
+
+-- Completed on 2019-11-09 14:26:13
+
+--
+-- PostgreSQL database dump complete
+--
+
