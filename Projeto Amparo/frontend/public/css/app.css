@@ -1,0 +1,16 @@
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333; }
+
+.v-speed-dial {
+  position: absolute; }
+
+.v-btn--floating {
+  position: fixed; }
+
+.btn-float-item {
+  display: flex;
+  align-items: center; }
+  .btn-float-item .btn-float-label {
+    right: 60px;
+    position: absolute; }
