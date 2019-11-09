@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>
+      PALADINOS
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-button shape="round" strong="true" color="danger" class="emergencyButton"
+(click)="takePicture()" (click)="getAudio()" (click)="sentEmergency()">
+  <ion-icon name="warning"></ion-icon>
+</ion-button>
+<ion-content style="display: flex; flex-direction: column; flex-wrap: wrap;">
+  <div class="ion-padding" id="mainWrapper">
+    <div class="buttonWrapper">
+      <ion-button color="tertiary" class="photoButton" (click)="takePicture()">
+        <ion-icon name="camera"></ion-icon>
+        <span>FOTO</span>
+      </ion-button>
+      <ion-button color="tertiary" class="photoButton" (click)="getAudio()">
+        <ion-icon name="mic"></ion-icon>
+        <span>ÁUDIO</span>
+      </ion-button>
+      <ion-button color="tertiary" class="photoButton" (click)="recordVideo()">
+        <ion-icon name="videocam"></ion-icon>
+        <span>VÍDEO</span>
+      </ion-button>
+    </div>
+    <form>
+      <ion-input
+        placeholder="Link"
+        class="input"
+        (input)="setLink(linky)"
+        [(ngModel)]="linky"
+        name="linky"
+      ></ion-input>
+      <ion-input
+        placeholder="Contexto"
+        class="input"
+        (input)="setContext(ctx)"
+        [(ngModel)]="ctx"
+        name="ctx"
+      ></ion-input>
+      <ion-input
+        placeholder="Descrição"
+        class="input"
+        (input)="setDesc(descy)"
+        [(ngModel)]="descy"
+        name="descy"
+      ></ion-input>
+      <label>Telefone de Contato <span>(Opcional)</span>:</label>
+      <ion-input id="phone" type="tel"
+                placeholder="XX XXXXXXXX"
+                class="input"
+                (input)="setNumber(phone)"
+                [(ngModel)]="phone"
+                name="phone"
+      ></ion-input>
+      <ion-button class="photoButton" (click)="sentNormal()" style="align-self: flex-start; margin-top: 10%;">
+          ENVIAR
+        <img *ngIf="imagem" [src]="imagem">
+      </ion-button>
+    </form>
+
+  </div>
+</ion-content>

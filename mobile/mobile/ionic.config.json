@@ -1,0 +1,7 @@
+{
+  "name": "capitaes4",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
