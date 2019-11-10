@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Icon from '@material-ui/core/Icon'
-import { TextField, Input } from '@material-ui/core'
+import { Input } from '@material-ui/core'
 
 const ContainerSearch = styled.div`
     display: inline-block;

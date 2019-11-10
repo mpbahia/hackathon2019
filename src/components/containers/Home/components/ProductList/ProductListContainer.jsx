@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import SearchBar from './../SearchBar'
-import {Grid, List, Button, FormControl} from '@material-ui/core'
+import SearchBar from '../SearchBar'
+import {List, ListItem, ListItemText, Button, FormControl} from '@material-ui/core'
 
 const ListContainer = styled.div`
     width: 100%;
