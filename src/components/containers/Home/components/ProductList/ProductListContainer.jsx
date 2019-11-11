@@ -2,24 +2,30 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import SearchBar from '../SearchBar'
 import { List, ListItem, ListItemText, 
-         Button, 
-         FormControl, InputLabel, MenuItem, Select,
+         Button,
          Icon } from '@material-ui/core'
+import { ProductDetails } from './ProductDetails'
 
 const ListContainer = styled.div`
+    display: block;
     width: 100%;
     height: 100%;
     padding: 1.2rem;
-    background:;
 `
 
 const ListHeader = styled(List)`
-    height: auto;
-    background: red;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    font-size: 10px;
+
 `
 
 const ProductList = styled(List)`
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    width: 100%;
     font-size: 12px;
 `
 
@@ -28,7 +34,6 @@ const ProductName = styled.label`
 `
 
 const ProductPrice = styled.label`
-    color: gray;
 `
 
 const ProductEnterprise = styled.label`
@@ -43,28 +48,24 @@ const ProductLastPrice = styled(Button)`
 const ProductDate = styled.label`
     color: gray;
 `
-
-const ProductDetails = styled(FormControl)`
-    background-color: gray;
-    font-weight: bold;
-    padding: 5px;
-`
-
-export default class ProductListContainer extends Component {
+    
+    export default class ProductListContainer extends Component {
 
     showDetails = ({props}) => {
         console.log("Abrindo detalhes")
     } 
-
+    
+    
     render() {
         const product = {
             name: "Arquivo Deslizante",
-            price: "R$ "+"1.700.99",
+            price: "R$ 1.700.99",
             enterprise: "Buscapé",
-            last_price: "R$ "+"1.300.00",
+            last_price: "R$ 1.300.00",
             date: "08 Out 2019",
             details: "Detalhes",
         }
+        
         return (
             <ListContainer>
                 <ListHeader className="HeaderList-Col" container spacing={3}>
@@ -108,20 +109,14 @@ export default class ProductListContainer extends Component {
                             primary={product.enterprise}
                         />
                     </ProductEnterprise>
+                    <ProductLastPrice>
+
+                    </ProductLastPrice>
                     <ListItem>
-                        <ProductDetails className={classes.formControl}>
-                            <InputLabel id="select-label-details">{product.details}</InputLabel>
-                            <Select
-                            labelId="select-label"
-                            id="select-id"
-                            value={"Exemplo"}
-                            onChange={this.showDetails.bind(this)}
-                            >
-                            <MenuItem value={10}>CNPJ/CPF</MenuItem>
-                            <MenuItem value={20}>Licitação</MenuItem>
-                            <MenuItem value={30}>Gráficos</MenuItem>
-                            </Select>
-                        </ProductDetails>
+                        <ProductDate />
+                    </ListItem>
+                    <ListItem>
+                        <ProductDetails />
                     </ListItem>
                     <ListItem>
                         <Icon className="fa fa-logout" color="black" fontSize="medium" />
