@@ -1,5 +1,5 @@
 import { configureStore } from 'redux-starter-kit'
-import productReducer from './productReducer'
+import productReducer from './reducers/productReducer'
 
 const store = configureStore({
   reducer: {
