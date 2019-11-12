@@ -6,7 +6,11 @@ import { Input } from '@material-ui/core'
 const ContainerSearch = styled.div`
     display: inline-block;
     width: 100%;
-    background: blue;
+    padding: 5px;
+    padding-left: 9px;
+    padding-right: 9px;
+    border-radius: 50px;
+    background: white;
 `
 
 export default class SearchBar extends Component {
