@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import styled from 'styled-components'
 import SearchBar from '../SearchBar'
 import Fab from '@material-ui/core/Fab';
@@ -9,26 +9,27 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
 
-//import { ProductDetails } from './ProductDetails'
-
-const ProductTable = styled(Paper)`
-    width: 80%;
-    margin-left: 300px;
-    border-radius: 40px;
+const BoxContainer = styled(Box)`
     overflow: hidden;
+    width: 80%;
+    margin-left: 260px;
+    margin-top: 30px;
+    -webkit-box-shadow: 0px 0px 15px -7px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 15px -7px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 15px -7px rgba(0,0,0,0.2);
+`
+const ProductTable = styled(Paper)`
 `
 const TableContainer = styled(Table)`
     width: 100%;
     font-size: 12px;
 `
 const StyledTableCell = styled(TableCell)`
-    background-color:${props => props.primary ? "black" : "white"};
-    color:${props => props.primary ? "white" : "black"};
 `
-
-    export default class ProductListContainer extends Component {
-
+export default class ProductListContainer extends Component {
+    
     showDetails = ({props}) => {
         console.log("Abrindo detalhes")
     } 
@@ -52,29 +53,31 @@ const StyledTableCell = styled(TableCell)`
             },
         }))(TableRow);
         
-        function createData(name, enterprise, price, date, details) {
-            return { name, enterprise, price, date, details };
+        function createData(name, price, enterprise, last_price, date, details) {
+            return { name, price, enterprise, last_price, date, details};
         }
   
 
         const rows = [
-            createData(product.name, product.enterprise, product.price, product.date, product.details),
-            createData(product.name, product.enterprise, product.price, product.date, product.details),
-            createData(product.name, product.enterprise, product.price, product.date, product.details),
-            createData(product.name, product.enterprise, product.price, product.date, product.details),
-            createData(product.name, product.enterprise, product.price, product.date, product.details),
+            createData(product.name, product.price, product.enterprise, product.last_price, product.date, product.details),
+            createData(product.name, product.price, product.enterprise, product.last_price, product.date, product.details),
+            createData(product.name, product.price, product.enterprise, product.last_price, product.date, product.details),
+            createData(product.name, product.price, product.enterprise, product.last_price, product.date, product.details),
+            createData(product.name, product.price, product.enterprise, product.last_price, product.date, product.details),
         ];
         
         return (
+            <BoxContainer borderRadius={8}>
             <ProductTable className="ProductContainer">
             <TableContainer className="ProductTable" aria-label="products table">
                 <TableHead>
                 <TableRow>
-                    <StyledTableCell primary >Preço</StyledTableCell>
-                    <StyledTableCell primary align="right">Empresa</StyledTableCell>
-                    <StyledTableCell primary align="right">Último Preço</StyledTableCell>
-                    <StyledTableCell primary align="right">Data</StyledTableCell>
-                    <StyledTableCell primary align="right"> </StyledTableCell>
+                    <StyledTableCell primary><SearchBar/></StyledTableCell>
+                    <StyledTableCell align="right">Preço</StyledTableCell>
+                    <StyledTableCell align="right">Empresa</StyledTableCell>
+                    <StyledTableCell align="right">Último Preço</StyledTableCell>
+                    <StyledTableCell last align="right">Data</StyledTableCell>
+                    <StyledTableCell last align="right"> </StyledTableCell>
                 </TableRow>
                 </TableHead>
                 <TableBody>
@@ -83,8 +86,9 @@ const StyledTableCell = styled(TableCell)`
                     <StyledTableCell component="th" scope="row">
                         {row.name}
                     </StyledTableCell>
-                    <StyledTableCell align="right">{row.enterprise}</StyledTableCell>
                     <StyledTableCell align="right">{row.price}</StyledTableCell>
+                    <StyledTableCell align="right">{row.enterprise}</StyledTableCell>
+                    <StyledTableCell align="right">{row.last_price}</StyledTableCell>
                     <StyledTableCell align="right">{row.date}</StyledTableCell>
                     <StyledTableCell align="right"> 
                         <Fab
@@ -102,6 +106,7 @@ const StyledTableCell = styled(TableCell)`
                 </TableBody>
             </TableContainer>
             </ProductTable>
+            </BoxContainer>
         )
     }
 }
