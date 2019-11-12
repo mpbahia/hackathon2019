@@ -1,6 +1,12 @@
 ## GTI
 **Descrição do projeto desenvolvido:** 
 
+Projeto desenvolvido pela equipe GTI no 1º hackathon do MPBA com o tema "Defesa Social", 
+com o subtema abordado "Criminalidade". O projeto vem com caracteristica principal de ser acessivel
+a maior parte da população (surdos, analfabetos, pessoas com baixa visão e etc), fazendo com que o indivíduo se localize,
+faça contato, procure, encontre e se dirija ao orgão correto para fazer uma denúncia e procurar ajuda, contando ainda 
+com um mural de notícias para a população.
+
 **Linguagens de programação utilizadas:**
 - Dart - Flutter
 
