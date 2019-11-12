@@ -1,24 +1,26 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Icon from '@material-ui/core/Icon'
-import { Input } from '@material-ui/core'
+import Paper from '@material-ui/core/Paper';
+import InputBase from '@material-ui/core/InputBase';
+import IconButton from '@material-ui/core/IconButton';
+import SearchIcon from '@material-ui/icons/Search';
 
-const ContainerSearch = styled.div`
-    display: inline-block;
-    width: 100%;
-    padding: 5px;
-    padding-left: 9px;
-    padding-right: 9px;
-    border-radius: 50px;
-    background: white;
+const ContainerSearch = styled(Paper)`
+    font-size: 11px;
 `
 
 export default class SearchBar extends Component {
     render() {
         return (
-            <ContainerSearch>
-                <Icon className="fa fa-search" color="black" fontSize="medium" />
-                <Input className="search-box-input" defaultValue="Digite CNPJ/Nome da Empresa" /> 
+            <ContainerSearch square={"false"} component="form" className="container-search" elevation={0}>
+                <IconButton type="submit" className="icon-search" aria-label="search">
+                    <SearchIcon />
+                </IconButton>
+                <InputBase
+                    className="product-input"
+                    placeholder="Produtos"
+                    inputProps={{ 'aria-label': 'procure produtos' }}
+                />
             </ContainerSearch>
         )
     }
