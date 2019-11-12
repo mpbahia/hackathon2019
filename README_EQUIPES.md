@@ -6,7 +6,7 @@
 
 **Ferramentas utilizadas:**
 - Visual Studio Code
-- Firibase
+- Firebase
 
 **Equipe:**
 
