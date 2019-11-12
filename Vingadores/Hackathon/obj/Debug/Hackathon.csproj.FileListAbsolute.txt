@@ -1,0 +1,78 @@
+C:\Users\raang\OneDrive\Área de Trabalho\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\Hackathon.exe.config
+C:\Users\raang\OneDrive\Área de Trabalho\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\Hackathon.exe
+C:\Users\raang\OneDrive\Área de Trabalho\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\Hackathon.pdb
+C:\Users\raang\OneDrive\Área de Trabalho\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.csprojAssemblyReference.cache
+C:\Users\raang\OneDrive\Área de Trabalho\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.FormDenuncia.resources
+C:\Users\raang\OneDrive\Área de Trabalho\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.FormLocalizacao.resources
+C:\Users\raang\OneDrive\Área de Trabalho\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.Properties.Resources.resources
+C:\Users\raang\OneDrive\Área de Trabalho\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.GenerateResource.cache
+C:\Users\raang\OneDrive\Área de Trabalho\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.CoreCompileInputs.cache
+C:\Users\raang\OneDrive\Área de Trabalho\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.exe
+C:\Users\raang\OneDrive\Área de Trabalho\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.pdb
+C:\Users\raang\OneDrive\Área de Trabalho\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.FormTipoDenuncia.resources
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\Hackathon.exe.config
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\Hackathon.exe
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\Hackathon.pdb
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\EntityFramework.dll
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\System.Data.SQLite.dll
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\EntityFramework.xml
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\System.Data.SQLite.xml
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.csprojAssemblyReference.cache
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.FormDenuncia.resources
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.FormLocalizacao.resources
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.FormTipoDenuncia.resources
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.Properties.Resources.resources
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.GenerateResource.cache
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.CoreCompileInputs.cache
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.CopyComplete
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.exe
+C:\Users\raang\OneDrive\Imagens\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.pdb
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\Hackathon.exe.config
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\Hackathon.exe
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\Hackathon.pdb
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\EntityFramework.dll
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\System.Data.SQLite.dll
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\EntityFramework.xml
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\System.Data.SQLite.xml
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.csprojAssemblyReference.cache
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.FormDenuncia.resources
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.FormLocalizacao.resources
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.FormTipoDenuncia.resources
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.Properties.Resources.resources
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.GenerateResource.cache
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.CoreCompileInputs.cache
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.CopyComplete
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.exe
+C:\Users\raang\Downloads\hackathon2019-master\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.pdb
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\Hackathon.exe.config
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\Hackathon.exe
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\Hackathon.pdb
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\EntityFramework.dll
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\System.Data.SQLite.dll
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\EntityFramework.xml
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\System.Data.SQLite.xml
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.csprojAssemblyReference.cache
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.FormDenuncia.resources
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.FormLocalizacao.resources
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.FormTipoDenuncia.resources
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.Properties.Resources.resources
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.GenerateResource.cache
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.CoreCompileInputs.cache
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.csproj.CopyComplete
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.exe
+C:\Users\raang\OneDrive\Área de Trabalho\hackathon2019-master\EquipeVingadores-master\Hackathon\Hackathon\obj\Debug\Hackathon.pdb
