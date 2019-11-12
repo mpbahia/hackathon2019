@@ -1,10 +1,9 @@
 import React from 'react'
 import { Button, 
-         MenuItem,
-         ListItem } from '@material-ui/core'
+         MenuItem } from '@material-ui/core'
 import styled from 'styled-components'
 
-const ProductDetailsContainer = styled(ListItem)`
+const ProductDetailsContainer = styled.div`
     font-weight: bold;
     padding: 5px;
     padding: 12px;
