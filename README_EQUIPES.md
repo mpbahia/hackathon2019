@@ -23,7 +23,7 @@ Ferramenta de Denúncia anônima para os gestores escolares denunciarem possivei
 
 **Descrição de execução do código:** 
 
-Para executar o programa desenvolvido pela equipe Vingadores é necessário acessar a pasta \EquipeVingadores-master\Hackathon e executar o arquivo Hackathon.sln com o Visual Studio instalado.
+Para executar o programa desenvolvido pela equipe Vingadores é necessário acessar a pasta \Vingadores\Hackathon e executar o arquivo Hackathon.sln com o Visual Studio instalado.
 
 Preencher o formulario com as informações que serão enviadas de forma anônima aos orgãos responsáveis, para que as medidas cabiveis sejam tomadas, verificando a reincidência da denúncia.
 Ao abrir o primeiro form será necessário preencher as seguintes informações:Estado,municipio e bairro, em seguida clicar no botão avançar para redirecionar para a próxima página
