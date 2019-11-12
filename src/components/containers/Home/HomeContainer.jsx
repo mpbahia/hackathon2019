@@ -1,32 +1,49 @@
 import React, { Component } from 'react'
 import { Container, Divider,
          List, ListItemText, ListItem,
-         Drawer } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+         Drawer, Grid, Avatar } from '@material-ui/core';
 import ProductTableContainer from './components/ProductList/ProductTableContainer';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import styled from 'styled-components'
-
-const themeMixin = {
-    sectiontheme: makeStyles(theme => theme.mixins.toolbar)
-}
 
 const AppDrawer = styled(Drawer)`
     & .MuiDrawer-paper{
         width: 300px;
         flex-shrink: 0;
+        color: white;
+        background-color: black;
     }
 `
-
 const ContentContainer = styled(Container)`
     width: 100%;
     height: 100%;
-    padding: 50px;
 `
 const Toolbar = styled.div`
-    ${props => styled(themeMixin.sectiontheme)}   
+    height: 100px;
+    background-color: white;
+`
+const Account = styled(Grid)`
+    padding: 30px;
+    font-weight: bold;
+    &:last-child{
+        font-size: 12px;
+        font-weight: normal;
+    }
+`
+const AccountText = styled(List)`
+    font-size: 14px;
+`
+const Title = styled(ListItem)`
+`
+const Subtitle = styled(ListItem)`
+    font-size: 12px;
+    color: gray;
+    margin-top: -10px;
 `
 const Content = styled.main`
-    
+    width: 100%;
+    height: 100%;
+    margin-left: 0px;
 `
 
 class HomeContainer extends Component {
@@ -42,8 +59,20 @@ class HomeContainer extends Component {
                     anchor="left">
                     <div className="toolbar-home" />
                     <Divider />
+                    <Account container justify="left" alignItems="left">
+                        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={"user-avatar"} />
+                        <AccountText>
+                            <Title>
+                                <b>Wesley Nunes </b> 
+                            </Title>
+                            <Subtitle>
+                                Consultor
+                            </Subtitle>
+                        </AccountText>
+                    </Account>
+                    <Divider />
                     <List>
-                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                    {['NFC-e', 'Ranking', 'Notificações', 'Projetos'].map((text, index) => (
                         <ListItem button key={text}>
                         <ListItemText primary={text} />
                         </ListItem>
@@ -51,17 +80,14 @@ class HomeContainer extends Component {
                     </List>
                     <Divider />
                     <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem button key={text}>
-                        <ListItemText primary={text} />
+                        <ListItem button key={"Sair"}>
+                        <ListItemText primary={"Sair"} />
                         </ListItem>
-                    ))}
                     </List>
                 </AppDrawer>
                 <Content className={"content"}>
-                    <Toolbar className={"toolbar"}>
-                        <ProductTableContainer/>
-                    </Toolbar>
+                    <Toolbar className={"toolbar"}/>
+                    <ProductTableContainer/>
                 </Content>
             </ContentContainer>
         )
