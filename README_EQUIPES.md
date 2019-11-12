@@ -11,15 +11,17 @@
 **Equipe:**
 
 | Nome | Função | Redes | Github/Bitbucket | Site pessoal |
-|  Iane Soares Saraiva  | Desenvolvedora | [Facebook](https://www.facebook.com/iane.soares.144), [Linkedin](https://www.linkedin.com/in/iane-soares-saraiva-600584196/) | @Ianesosaraiva | Não possui | 
-
-|  José Orlando da Conceição Melo  | Desenvolvedor  | [Facebook](https://www.facebook.com/MPBA), [Linkedin](https://br.linkedin.com/pub/MPBA) | @Fulano | Não Possui | 
-
-|  Jhonatan Pereira Costa  | Designer  | [Facebook](https://www.facebook.com/MPBA), [Linkedin](https://br.linkedin.com/pub/MPBA) | @Fulano | Não Possui | 
-
-|  Marcelo Moura Gonçalves  | DBA  | [Facebook](https://www.facebook.com/MPBA), [Linkedin](https://br.linkedin.com/pub/MPBA) | @Fulano | [Fulano.com.br](http://https://mpba.mp.br/) | 
-
-|  Daniella Trizotto | Negócios  | [Facebook](https://www.facebook.com/MPBA), [Linkedin](https://br.linkedin.com/pub/MPBA) | @Fulano | [Fulano.com.br](http://https://mpba.mp.br/) | 
+| ------------- | ------------- | ------------- | ------------- | ------------- | 
+|  Iane Soares Saraiva  | Desenvolvedora | [Facebook](https://www.facebook.com/iane.soares.144), [Linkedin](https://www.linkedin.com/in/iane-soares-saraiva-600584196/) | @Ianesosaraiva | Não possui |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+|  José Orlando da Conceição Melo  | Desenvolvedor  | [Facebook](https://www.facebook.com/MPBA), [Linkedin](https://br.linkedin.com/pub/MPBA) | @Fulano | Não Possui |
+| ------------- | ------------- | ------------- | ------------- | ------------- | 
+|  Jhonatan Pereira Costa  | Designer  | [Facebook](https://www.facebook.com/MPBA), [Linkedin](https://br.linkedin.com/pub/MPBA) | @Fulano | Não Possui |
+| ------------- | ------------- | ------------- | ------------- | ------------- | 
+|  Marcelo Moura Gonçalves  | DBA  | [Facebook](https://www.facebook.com/MPBA), [Linkedin](https://br.linkedin.com/pub/MPBA) | @Fulano | [Fulano.com.br](http://https://mpba.mp.br/) |
+| ------------- | ------------- | ------------- | ------------- | ------------- | 
+|  Daniella Trizotto | Negócios  | [Facebook](https://www.facebook.com/MPBA), [Linkedin](https://br.linkedin.com/pub/MPBA) | @Fulano | [Fulano.com.br](http://https://mpba.mp.br/) |
+| ------------- | ------------- | ------------- | ------------- | ------------- | 
 |  Alícia Santos de Jesus  | Developer / Designer  | [Facebook](https://www.facebook.com/MPBA), [Linkedin](https://br.linkedin.com/pub/MPBA) | @Fulano | [Fulano.com.br](http://https://mpba.mp.br/) | 
 
 **Descrição de execução do código:** 
