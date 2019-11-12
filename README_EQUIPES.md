@@ -1,13 +1,12 @@
-## NOME DA EQUIPE
+## GTI
 **Descrição do projeto desenvolvido:** 
 
 **Linguagens de programação utilizadas:**
-- Linguagem 1
-- Linguagem 2
+- Dart - Flutter
 
 **Ferramentas utilizadas:**
-- Ferramenta 1
-- Ferramenta 2
+- Visual Studio Code
+- Firibase
 
 **Equipe:**
 
