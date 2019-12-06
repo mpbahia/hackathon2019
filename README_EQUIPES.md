@@ -34,3 +34,9 @@ com um mural de notícias para a população.
 
 O projeto deve ser executado em uma maquina que possua o Flutter instalado sendo que o projeto pode ser aberto em uma plataforma associada, como o Visual Studio Code ou o Android Studio.
 Tendo o Flutter instalado na maquina é necessário abrir o projeto na plataforma que foi escolhida e realizar um get packeges para que o projeto se adapte a maquina. Depois que tal procedimento for realizado é necessário que seja conectado um celular (que esteja com o modo de desenvolvedor ativo) ou que um emulador seja aberto para logo em seguida copilar o projeto.
+Lembrando que o Android Studio tem que está obrigatoriamente instalado para que a instalação do Flutter seja concluida.
+Abaixo seguem os links dos videos de tutoriais de instalação do Flutter em Windows, Linux e MacOS.
+
+https://drive.google.com/file/d/1-Fp8qBztWO6GkxUvS7xoRFfx8MaCxsWS/view?usp=sharing
+https://drive.google.com/file/d/1yRBe1mqbxfBmdKx2G__3nqMkuCS174d5/view?usp=sharing
+https://drive.google.com/file/d/1omDxSGncTXVHyaVLUWGlJVpjEintTrKB/view?usp=sharing
