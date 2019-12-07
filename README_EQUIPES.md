@@ -37,6 +37,6 @@ Tendo o Flutter instalado na maquina é necessário abrir o projeto na plataform
 Lembrando que o Android Studio tem que está obrigatoriamente instalado para que a instalação do Flutter seja concluida.
 Abaixo seguem os links dos videos de tutoriais de instalação do Flutter em Windows, Linux e MacOS.
 
-https://drive.google.com/file/d/1-Fp8qBztWO6GkxUvS7xoRFfx8MaCxsWS/view?usp=sharing
+https://drive.google.com/file/d/1-Fp8qBztWO6GkxUvS7xoRFfx8MaCxsWS/view?usp=sharing 
 https://drive.google.com/file/d/1yRBe1mqbxfBmdKx2G__3nqMkuCS174d5/view?usp=sharing
 https://drive.google.com/file/d/1omDxSGncTXVHyaVLUWGlJVpjEintTrKB/view?usp=sharing
