@@ -45,7 +45,6 @@ https://developer.android.com/studio
 O passo a passo da instalação do Flutter se encontra nos links abaixo, sendo respectivamente o link de instalação do Windows, do Linux e do MacOS.
 
 *Windows:*
-
 https://drive.google.com/file/d/1-Fp8qBztWO6GkxUvS7xoRFfx8MaCxsWS/view?usp=sharing 
 
 *Linux:*
