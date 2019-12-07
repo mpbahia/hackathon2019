@@ -35,17 +35,25 @@ com um mural de notícias para a população.
 
 O projeto deve ser executado em uma máquina que possua o Flutter instalado sendo que o projeto pode ser aberto em uma plataforma associada, como o Visual Studio Code ou o Android Studio. 
 Para a instalação do Flutter, é necessário que o mesmo seja baixado no link abaixo:
+
 https://flutter.dev/docs/get-started/install
+
 Para que o Flutter seja executado é necessário a instalação do Android Studio, o link de download do mesmo se encontra abaixo:
+
 https://developer.android.com/studio
+
 O passo a passo da instalação do Flutter se encontra nos links abaixo, sendo respectivamente o link de instalação do Windows, do Linux e do MacOS.
 
 *Windows:*
+
 https://drive.google.com/file/d/1-Fp8qBztWO6GkxUvS7xoRFfx8MaCxsWS/view?usp=sharing 
+
 *Linux:*
 https://drive.google.com/file/d/1omDxSGncTXVHyaVLUWGlJVpjEintTrKB/view?usp=sharing
+
 *MacOS:*
 https://drive.google.com/file/d/1yRBe1mqbxfBmdKx2G__3nqMkuCS174d5/view?usp=sharing 
+
 
 Se for escolhido o Visual Studio como plataforma de uso o link de download do mesmo se encontra abaixo:
 https://code.visualstudio.com/Download
