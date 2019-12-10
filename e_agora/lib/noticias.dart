@@ -51,14 +51,14 @@ class Noticias extends StatelessWidget {
           title: Text("Notícias"),
           centerTitle: true,
           actions: <Widget>[
-           InkWell(
-             child:  ButtonBar(
-              children: <Widget>[Icon(Icons.search)],
-            ),
-            onTap: (){
-              alert();
-            },
-           )
+            InkWell(
+              child: ButtonBar(
+                children: <Widget>[Icon(Icons.search)],
+              ),
+              onTap: () {
+                alert();
+              },
+            )
           ],
         ),
         body: SingleChildScrollView(
@@ -221,22 +221,6 @@ class Noticias extends StatelessWidget {
               ),
             ],
           ),
-        )
-        // bottomNavigationBar: BottomNavigationBar(
-        //   backgroundColor: accentColor,
-        //   items: [
-        //     BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("Home")),
-        //     BottomNavigationBarItem(
-        //         icon: Icon(
-        //           Icons.history,
-        //           color: primaryColor,
-        //         ),
-        //         title: Text(
-        //           "Historico",
-        //           style: TextStyle(color: primaryColor),
-        //         )),
-        //   ],
-        // ),
-        );
+        ));
   }
 }

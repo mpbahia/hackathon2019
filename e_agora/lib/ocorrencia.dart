@@ -1,15 +1,13 @@
 import 'dart:async';
-import 'package:e_agora/boletin.dart';
+import 'package:e_agora/data/data_problemas.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
-import 'package:e_agora/data/data_alert.dart';
-import 'package:e_agora/mapa.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class Ocorrencia extends StatelessWidget {
-  final AlertButtons data;
+  final DataProblemas data;
   Ocorrencia(this.data);
   Completer<WebViewController> _controller = Completer<WebViewController>();
   final Set<String> _favorites = Set<String>();
@@ -25,27 +23,18 @@ class Ocorrencia extends StatelessWidget {
           backgroundColor: accentColor,
           title: Text(
             data.titulo,
-            style: TextStyle(color: primaryColor, fontSize: 22, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                color: primaryColor, fontSize: 22, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
         ),
         body: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(30),
+            padding: EdgeInsets.all(10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                // decoration: BoxDecoration(
-                //         gradient: LinearGradient(
-                //             colors: [Colors.blue, Colors.blue[700]]),
-                //         borderRadius: BorderRadius.circular(50.0),
-                //         boxShadow: [
-                //           BoxShadow(
-                //               color: Color(0xFF6078ea).withOpacity(.3),
-                //               offset: Offset(0.0, 9.0),
-                //               blurRadius: 10.0)
-                //         ]),
                 Container(
                   decoration: new BoxDecoration(
                     borderRadius: new BorderRadius.circular(10.0),
@@ -65,7 +54,7 @@ class Ocorrencia extends StatelessWidget {
                       ],
                     ),
                     onPressed: () {
-                      UrlLauncher.launch('tel:+${data.contato.toString()}');
+                      UrlLauncher.launch('tel:+${data.telefone.toString()}');
                     },
                   ),
                 ),
@@ -90,7 +79,7 @@ class Ocorrencia extends StatelessWidget {
                       ),
                     ]),
                     onPressed: () {
-                      UrlLauncher.launch('https://disquedenuncia.com/denuncie-aqui/');
+                      UrlLauncher.launch('${data.denuncia}');
                     },
                   ),
                 ),
@@ -115,13 +104,72 @@ class Ocorrencia extends StatelessWidget {
                       ),
                     ]),
                     onPressed: () {
-                      UrlLauncher.launch(
-                          'https://www.delegaciadigital.ssp.ba.gov.br/OcorrenciaInternet/Bemvindo.ssp');
+                      UrlLauncher.launch('${data.ocorrencia}');
                     },
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 15,
+                ),
+                data.assistencia != null
+                    ? Container(
+                        decoration: new BoxDecoration(
+                          borderRadius: new BorderRadius.circular(10.0),
+                          color: Colors.yellow[800],
+                        ),
+                        child: FlatButton(
+                          color: Colors.yellow[800],
+                          child: Row(children: <Widget>[
+                            Icon(
+                              Icons.email,
+                              color: primaryColor,
+                            ),
+                            Text(
+                              "\t\Assistência Social?",
+                              style:
+                                  TextStyle(color: primaryColor, fontSize: 19),
+                            ),
+                          ]),
+                          onPressed: () {
+                            UrlLauncher.launch('mailto:${data.assistencia}');
+                          },
+                        ),
+                      )
+                    : SizedBox(
+                        height: 1,
+                      ),
+                SizedBox(
+                  height: 15,
+                ),
+                data.acolhimento != null
+                    ? Container(
+                        decoration: new BoxDecoration(
+                          borderRadius: new BorderRadius.circular(10.0),
+                          color: Colors.blue[800],
+                        ),
+                        child: FlatButton(
+                          color: Colors.blue[800],
+                          child: Row(children: <Widget>[
+                            Icon(
+                              Icons.email,
+                              color: primaryColor,
+                            ),
+                            Text(
+                              "\t\tAcolhimento Piscicólogico?",
+                              style:
+                                  TextStyle(color: primaryColor, fontSize: 17),
+                            ),
+                          ]),
+                          onPressed: () {
+                            UrlLauncher.launch('mailto:${data.acolhimento}');
+                          },
+                        ),
+                      )
+                    : SizedBox(
+                        height: 1,
+                      ),
+                SizedBox(
+                  height: 15,
                 ),
                 Container(
                   alignment: Alignment.center,
@@ -162,7 +210,8 @@ class Ocorrencia extends StatelessWidget {
                           alignment: Alignment.center,
                           padding: EdgeInsets.only(top: 15, bottom: 30),
                           child: Text(
-                            "Deseja saber qual o órgão responsável mais próximo?",textAlign: TextAlign.center,
+                            "Deseja saber qual o órgão responsável mais próximo?",
+                            textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 17,
                                 fontWeight: FontWeight.bold,
@@ -186,21 +235,18 @@ class Ocorrencia extends StatelessWidget {
                                   'https://www.google.com.br/maps/search/delegacia/@-12.9760432,-38.5133559,14z/data=!3m1!4b1');
                             },
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
+                ),
+                SizedBox(
+                  height: 20,
                 )
               ],
             ),
           ),
         ));
-
-    // FutureBuilder(
-    //   builder: (context, snapshot) {
-
-    //   },
-    // );
   }
 
   _bookmarkButton() {

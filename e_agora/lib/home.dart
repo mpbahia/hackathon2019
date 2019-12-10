@@ -1,8 +1,8 @@
 import 'dart:io';
+import 'package:e_agora/data/data_problemas.dart';
 import 'package:e_agora/noticias.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:e_agora/data/data_alert.dart';
 import 'package:e_agora/ocorrencia.dart';
 import 'package:e_agora/problemas.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +21,6 @@ class _HomeState extends State<Home> {
     final primaryColor = Theme.of(context).primaryColor;
     final hintColor = Theme.of(context).hintColor;
     final a = Colors.cyan[400];
-
     void alert() {
       showDialog(
           context: context,
@@ -82,6 +81,7 @@ class _HomeState extends State<Home> {
         ],
       ),
       drawer: Drawer(
+          child: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             DrawerHeader(
@@ -144,9 +144,58 @@ class _HomeState extends State<Home> {
                 }),
           ],
         ),
+      )),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: accentColor,
+        currentIndex: _selectedPage,
+        onTap: (index) {
+          setState(() {
+            if (index == 0) {
+              alert();
+              //launch('https://www.handtalk.me/');
+            } else if (index == 1) {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Noticias()));
+            } else if (index == 2) {
+              alert();
+            }
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            title: Text(
+              "Libras",
+              style: TextStyle(fontSize: 1, color: accentColor),
+            ),
+            icon: Image.network(
+              "https://firebasestorage.googleapis.com/v0/b/e-agora-96429.appspot.com/o/1573283043345.png?alt=media&token=776eec9e-8f09-46df-ad46-2413699f54e5",
+              height: 60,
+            ),
+          ),
+          BottomNavigationBarItem(
+              title: Text(
+                "Libras",
+                style: TextStyle(fontSize: 1, color: accentColor),
+              ),
+              icon: Icon(
+                Icons.subtitles,
+                size: 59,
+                color: primaryColor,
+              )),
+          BottomNavigationBarItem(
+              title: Text(
+                "Libras",
+                style: TextStyle(fontSize: 1, color: accentColor),
+              ),
+              icon: Icon(
+                Icons.settings_voice,
+                color: primaryColor,
+                size: 60,
+              ))
+        ],
       ),
       body: FutureBuilder<QuerySnapshot>(
-          future: Firestore.instance.collection('alert').getDocuments(),
+          future: Firestore.instance.collection('ocorrencia').getDocuments(),
           builder: (context, snapshot) {
             if (!snapshot.hasData)
               return Center(
@@ -155,176 +204,24 @@ class _HomeState extends State<Home> {
 
             return new SingleChildScrollView(
                 child: Container(
-                    // decoration: BoxDecoration(
-                    //     color: primaryColor,
-                    //     borderRadius: BorderRadius.circular(8.0),
-                    //     boxShadow: [
-                    //       BoxShadow(
-                    //           color: Colors.black12,
-                    //           offset: Offset(0.0, 15.0),
-                    //           blurRadius: 15.0),
-                    //       BoxShadow(
-                    //           color: Colors.black12,
-                    //           offset: Offset(0.0, -10.0),
-                    //           blurRadius: 10.0),
-                    //     ]),
-                    padding: EdgeInsets.only(top: 20),
+                    padding: EdgeInsets.only(top: 5),
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Problemas(AlertButtons.fromDocument(
-                              snapshot.data.documents[0])),
-                          Container(
-                            padding: EdgeInsets.only(top: 20),
-                            child: Card(
-                              color: accentColor,
-                              child: Container(
-                                padding: EdgeInsets.all(10),
-                                child: Row(
-                                  children: <Widget>[
-                                    InkWell(
-                                      child: Image.network(
-                                        "https://firebasestorage.googleapis.com/v0/b/e-agora-96429.appspot.com/o/1573283043345.png?alt=media&token=776eec9e-8f09-46df-ad46-2413699f54e5",
-                                        width: 60,
-                                      ),
-                                      onTap: () {
-                                        launch('https://www.handtalk.me/');
-                                      },
-                                    ),
-                                    Spacer(),
-                                    InkWell(
-                                      child: Container(
-                                          padding: EdgeInsets.only(left: 10),
-                                          child: Column(
-                                            children: <Widget>[
-                                              Icon(
-                                                Icons.subtitles,
-                                                color: primaryColor,
-                                                size: 60,
-                                              ),
-                                              // Text(
-                                              //   "Noticias",
-                                              //   style: TextStyle(
-                                              //       color: primaryColor,
-                                              //       fontSize: 20),
-                                              // ),
-                                            ],
-                                          )),
-                                      onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    Noticias()));
-                                      },
-                                    ),
-                                    Spacer(),
-                                    InkWell(
-                                      child: Icon(
-                                        Icons.settings_voice,
-                                        size: 60,
-                                        color: primaryColor,
-                                      ),
-                                      onTap: () {
-                                        alert();
-                                      },
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          )
+                          ConstrainedBox(
+                              constraints: BoxConstraints(maxHeight: 1000),
+                              child: ListView.builder(
+                                physics: ScrollPhysics(),
+                                shrinkWrap: true,
+                                itemCount: snapshot.data.documents.length,
+                                itemBuilder: (context, index) {
+                                  return Problemas(DataProblemas.fromDocument(
+                                      snapshot.data.documents[index]));
+                                },
+                              )),
                         ])));
           }),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   backgroundColor: accentColor,
-      //   currentIndex: _selectedPage,
-      //   onTap: (int index) {
-      //     setState(() {
-      //       _selectedPage = index;
-      //     });
-      //   },
-      //   items: [
-      //     BottomNavigationBarItem(
-      //         icon: Icon(Icons.pan_tool),
-      //         title: Text(
-      //           "Libras",
-      //           style: TextStyle(color: primaryColor),
-      //         )),
-      //     BottomNavigationBarItem(
-      //         icon: Icon(
-      //           Icons.settings_voice,
-      //           color: primaryColor,
-      //         ),
-      //         title: Text(
-      //           "Voz",
-      //           style: TextStyle(color: primaryColor),
-      //         )),
-      //   ],
-      // )
     );
   }
 }
-
-// AlertDialog(
-//   elevation: 8.0,
-//   actions: <Widget>[],
-//   title: Text(
-//     "Qual o seu problema?",
-//     style: TextStyle(color: Theme.of(context).primaryColor),
-//     textAlign: TextAlign.center,
-//   ),
-//   backgroundColor: Colors.blue[300],
-//   content: Column(
-//     children: <Widget>[
-//       Container(
-//         padding: EdgeInsets.only(top: 200),
-//         child: new
-//         //GridView.builder(
-//         //   padding: EdgeInsets.all(10),
-//         //   gridDelegate:
-//         //       SliverGridDelegateWithFixedCrossAxisCount(
-//         //           crossAxisCount: 2,
-//         //           mainAxisSpacing: 4.0,
-//         //           crossAxisSpacing: 4.0,
-//         //           childAspectRatio: 0.65),
-//         //   itemCount: snapshot.data.documents.length,
-//         //   itemBuilder: (context, index) {
-//         //     return Problemas(AlertButtons.fromDocument(
-//         //         snapshot.data.documents[index]));
-//         //   },
-//         // )
-//         ),
-//         // FlatButton(
-//         //   color: Theme.of(context).primaryColor,
-//         //   onPressed: () {
-//         //     return Problemas(AlertButtons.fromDocument(
-//         //         snapshot.data.documents[0]));
-//         //   },
-//         //   child: Text("Roubo"),
-//         // ),
-//       // FlatButton(
-//       //   color: Theme.of(context).primaryColor,
-//       //   onPressed: () {},
-//       //   child: Text("Roubo"),
-//       // ),
-//       // FlatButton(
-//       //   color: Theme.of(context).primaryColor,
-//       //   onPressed: () {},
-//       //   child: Text("Roubo"),
-//       // ),
-//       // FlatButton(
-//       //   color: Theme.of(context).primaryColor,
-//       //   onPressed: () {},
-//       //   child: Text("Assédio"),
-//       // ),
-//       // FlatButton(
-//       //   color: Theme.of(context).primaryColor,
-//       //   onPressed: () {},
-//       //   child: Text("Violência"),
-//       // )
-//     ],
-//   ),
-// )
-//   ],
